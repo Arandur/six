@@ -27,6 +27,8 @@ private:
   const char* _msg;
 };
 
+using Rect = SDL_Rect;
+
 class Window
 {
 public:
@@ -107,6 +109,8 @@ public:
   }
 
   auto lock() -> Lock;
+
+  auto size() -> Rect;
 
 private:
   std::unique_ptr<SDL_Texture, void (&) (SDL_Texture*)> _tex;

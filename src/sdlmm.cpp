@@ -32,4 +32,13 @@ auto Texture::lock() -> Lock
 {
   return Lock(get());
 }
+
+auto Texture::size() -> Rect
+{
+  Rect rect { 0, 0, 0, 0 };
+
+  SDL_QueryTexture(get(), nullptr, nullptr, &rect.w, &rect.h);
+
+  return rect;
+}
 }

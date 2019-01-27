@@ -18,11 +18,9 @@ int main()
   sdl::Renderer ren(win, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
   sdl::Texture  tex(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, 640, 480);
 
-  hex::board board;
+  auto board = hex::board_t::init();
 
-  // Initial setup
-  board.set_color({0, 1}, hex::color::RED);
-  board.set_color({1, 0}, hex::color::BLACK);
+  board.add({ 0, 3 }, hex::color_t::RED);
 
   while (true)
   {
